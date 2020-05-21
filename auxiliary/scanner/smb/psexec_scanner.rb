@@ -223,7 +223,7 @@ class MetasploitModule < Msf::Auxiliary
 			# Set options for module
 			mul = framework.exploits.create("multi/handler")
 			mul.share_datastore(@pay.datastore)
-			mul.datastore['WORKSPACE'] = framework.db.workspace.name
+			mul.datastore['WORKSPACE'] = framework.db.find_workspace(self.workspace)
 			mul.datastore['PAYLOAD'] = pay_name
 			mul.datastore['EXITFUNC'] = 'thread'
 			mul.datastore['ExitOnSession'] = false
